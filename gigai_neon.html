@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: NEON | 騒音</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            /* 瞳の色に合わせたルミナスグリーン */
+            --accent-color: #bef264; /* Luminous Lime/Green */
+            --accent-glow: rgba(190, 242, 100, 0.25);
+            --base-pink: #f472b6;
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 0% 100%, rgba(20, 83, 45, 0.3) 0, transparent 50%),
+                radial-gradient(at 100% 0%, var(--accent-glow) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.5;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-grid dt {
+            color: #64748b;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #f1f5f9;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: var(--accent-glow);
+            font-family: serif;
+        }
+
+        .audio-wave {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 20px;
+        }
+        .audio-wave span {
+            width: 2px;
+            background: var(--accent-color);
+            box-shadow: 0 0 8px var(--accent-color);
+            animation: wave 1s ease-in-out infinite;
+        }
+        @keyframes wave {
+            0%, 100% { height: 4px; opacity: 0.5; }
+            50% { height: 16px; opacity: 1; }
+        }
+
+        /* ネオンサイン風のテキスト */
+        .neon-text {
+            color: var(--accent-color);
+            text-shadow: 0 0 5px var(--accent-color), 0 0 15px var(--accent-glow);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-slate-950/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-slate-500 hover:text-white transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-b from-lime-500/20 to-transparent rounded-[2rem] blur opacity-25"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-slate-700/50 bg-slate-900 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/1Uw4mT9gxehy2uAN9Sx8e4GYgNOMg4JQ6" alt="Neon Visual" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-lime-400 shadow-[0_0_8px_#bef264]"></span>
+                                <span class="text-lime-400 font-mono text-xs tracking-widest uppercase text-shadow">Unit_04 / Noise_Pollution</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">ネオン</h1>
+                            <p class="text-slate-400 font-serif text-2xl mt-2 tracking-[0.5em]">音音</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-lime-400/50">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>160 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>15</dd>
+                        </div>
+                        <div>
+                            <dt>Eyes</dt>
+                            <dd class="neon-text">薄緑 / ジト目</dd>
+                        </div>
+                        <div>
+                            <dt>Mobility</dt>
+                            <dd>飛行可能</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-slate-800 pt-4 mt-2">
+                            <dt>Special Skill</dt>
+                            <dd class="flex items-center gap-3">
+                                <span>全音響の完全再現</span>
+                                <div class="audio-wave">
+                                    <span style="animation-delay: 0.1s"></span>
+                                    <span style="animation-delay: 0.3s"></span>
+                                    <span style="animation-delay: 0.2s"></span>
+                                    <span style="animation-delay: 0.4s"></span>
+                                </div>
+                            </dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-slate-200 leading-snug tracking-tight">
+                            「聴けてめえら！<br>聴かねえなら失せろ！」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-slate-400 leading-snug opacity-80">
+                            「視覚が嘘を吐くのなら、<br>オレがてめえらに真実をたたき込んでやるよ」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Dossier</div>
+                    
+                    <h2 class="text-xs font-bold text-lime-400 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p>
+                            「騒音」の概型生命体。茶髪のショートヘアに、左目を隠したスタイルが特徴。白いマフラーとコートの先端を翼のように変形させ、重力を無視して滞空する能力を持つ。
+                        </p>
+                        <p>
+                            生物・非生物を問わず、この世のあらゆる音を正確に再現できる特殊な声帯を有する。普段はその力を「手加減」しながらバンドのボーカルとして活動しているが、戸籍や社会的情報の欠落、さらには人外特有の浮ゆえの浮遊感により、メジャーシーンでの活動には制限がかかっている。
+                        </p>
+                        <p>
+                            視力は極端に低いが、それを補って余りある聴覚と「音による空間把握」に長けている。同居する他の擬害たち（特にダイキやスイといった年長者）を「馬鹿なおっさんたち」と冷めた目で見ているが、彼らが出す特有の「音」には、どこか信頼にも似た感覚を抱いている。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">感性</h4>
+                            <p class="text-sm font-medium italic">擬害の中では比較的「まとも」。常識的だが毒舌。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">加害性質</h4>
+                            <p class="text-sm font-medium">聴覚神経への直接干渉。精神的疲弊の誘発。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-lime-400 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold">空</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-blue-400 mb-1">ダイキ（大気汚染）</h5>
+                                <p class="text-xs text-slate-500">「暗いおっさん」として認識。ただし、彼の吐き出す煙と静寂が混ざる音の「純度」だけは高く評価している。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-teal-900/50 flex items-center justify-center border border-teal-500/30 text-teal-400 font-bold">水</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-teal-400 mb-1">スイ（水質汚濁）</h5>
+                                <p class="text-xs text-slate-500">床にこぼす液体の音や、酩酊したような笑い声を「不協和音」として疎ましく思っている。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-slate-800 bg-slate-950/30">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">
+                        観測：対象は音の波そのものであり、物質的な境界を軽々と飛び越える。彼の「歌」は時に癒やしとして機能するが、その本質は人々の耳を、脳を、世界を「ノイズ」で塗りつぶす騒音そのものだ。彼が空を飛ぶ理由を考えないのは、それが魚が泳ぐのと同じ、抗いようのない本能だからに他ならない。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-slate-900/50 text-center">
+        <p class="text-[9px] text-slate-700 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_04_NEON // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

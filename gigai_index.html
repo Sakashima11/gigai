@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>典型七公害 擬害アーカイブ | Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #0f172a; /* Deep dark blue-black */
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .hero-gradient {
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        .card-glass {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-glass:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .status-badge {
+            font-size: 0.65rem;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Scanline effect for that "database" feel */
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+            background-size: 100% 4px, 3px 100%;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .disclaimer-box {
+            background: rgba(15, 23, 42, 0.8);
+            border-left: 2px solid #ef4444;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="scanlines"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex flex-col items-center justify-center px-6 relative py-20">
+        <div class="absolute top-10 left-10 opacity-20 hidden md:block">
+            <p class="text-xs tracking-widest font-mono">ENVIRO-DB VERSION 4.0.2<br>ACCESS GRANTED / GIGAI_CLASS</p>
+        </div>
+
+        <!-- Author Credit (Top Right) -->
+        <div class="absolute top-10 right-10 text-right opacity-40">
+            <p class="text-[10px] tracking-[0.3em] font-bold">PROJECT BY</p>
+            <p class="text-lg serif-text">圓未</p>
+        </div>
+
+        <div class="text-center max-w-4xl z-10">
+            <h1 class="text-5xl md:text-8xl font-bold serif-text mb-6 tracking-tighter">
+                <span class="text-blue-400">典型七公害</span><br>
+                <span class="text-white opacity-90">擬害アーカイブ</span>
+            </h1>
+            <div class="inline-block border-y border-slate-700 py-4 mb-8">
+                <p class="text-lg md:text-xl text-slate-400 font-light tracking-[0.2em]">
+                    概念が肉体を得た時、それは「害」となる。
+                </p>
+            </div>
+            <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
+                環境基本法に定められた7つの公害現象。それらが人間の姿と意志を持って現世に受肉した存在、総称「擬害」。<br>
+                本サイトは、彼らの生態・関係性、およびその背後にある公害の本質を記録した機密データベースである。
+            </p>
+        </div>
+
+        <a href="#roster" class="mt-16 animate-bounce text-slate-400 hover:text-white transition-colors">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </a>
+    </section>
+
+    <!-- Main Content -->
+    <main id="roster" class="max-w-7xl mx-auto px-6 py-24">
+        
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-800 pb-6">
+            <div>
+                <h2 class="text-3xl font-bold serif-text text-blue-300">観測対象：擬害一覧</h2>
+                <p class="text-slate-500 text-sm mt-2 font-mono">SELECT UNIT TO VIEW CLASSIFIED DOSSIER</p>
+            </div>
+            <div class="mt-4 md:mt-0">
+                <span class="status-badge bg-green-900 text-green-300">SYSTEM: ONLINE</span>
+            </div>
+        </div>
+
+        <!-- Character Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            
+            <!-- Character Card 1 (Daiki) -->
+            <a href="gigai_daiki.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/1pdCAXMiwH3MQBR7n0_cIf4k5vm_sPck6" alt="Daiki" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-blue-400 font-bold tracking-widest bg-blue-900/50 px-2 py-1 rounded">大気汚染</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">ダイキ</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">著名な覆面作家。本来の自然な「生」を上書きされた存在。不変を愛する孤独な観測者。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 2 (Sui) -->
+            <a href="gigai_sui.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/1aP-yr7Ee932CpLQE-dreSPtMfdGfaSKr" alt="Sui" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-cyan-400 font-bold tracking-widest bg-cyan-900/50 px-2 py-1 rounded">水質汚濁</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">スイ</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">最年長で家主。冷徹な知性で「擬害」を束ねる、酩酊気味のマッドサイエンティスト。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 3 (Jou) -->
+            <a href="gigai_jou.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/1LAuXCyhznMGk_D4SBXnRLaINp0wMc60d" alt="Jou" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-green-400 font-bold tracking-widest bg-green-900/50 px-2 py-1 rounded">土壌汚染</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">ジョウ</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">友好的な装いで他人のテリトリーを踏み荒らす「兵器」。気分屋で支配的な性質を持つ。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 4 (Neon) -->
+            <a href="gigai_neon.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/1Uw4mT9gxehy2uAN9Sx8e4GYgNOMg4JQ6" alt="Neon" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-yellow-400 font-bold tracking-widest bg-yellow-900/50 px-2 py-1 rounded">騒音</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">ネオン</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">空中を舞う異端のボーカリスト。大人を嘲笑うジト目の少年。あらゆる音を再現する。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 5 (Shin) -->
+            <a href="gigai_shin.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/13smRPbOvhGD0mAI8Q-fu79vKCb1LmUCs" alt="Shin" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-red-400 font-bold tracking-widest bg-red-900/50 px-2 py-1 rounded">振動</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">シン</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">己の異形を嫌悪し、地鳴りのような声で理を説く常識人。擬害の中の数少ないブレーキ役。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 6 (Jikka) -->
+            <a href="gigai_jikka.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/1kUklrKMZZ9wQZ6qOOtRg_5I5ACJD7m2M" alt="Jikka" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent opacity-80"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-stone-400 font-bold tracking-widest bg-stone-800/50 px-2 py-1 rounded">地盤沈下</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">ジッカ</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">無邪気で無知な「大喰らい」。何でも呑み込み、自身の加害に無自覚な底なしの幼子。</p>
+                </div>
+            </a>
+
+            <!-- Character Card 7 (Shuu) -->
+            <a href="gigai_shuu.html" class="card-glass rounded-2xl overflow-hidden group">
+                <div class="h-64 bg-slate-800 relative">
+                    <img src="https://lh3.googleusercontent.com/d/17NtfQ2Atgi4Q5UAi_WDl8QVIQpnrc3ie" alt="Shuu" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="text-xs text-purple-400 font-bold tracking-widest bg-purple-900/50 px-2 py-1 rounded">悪臭</span>
+                        <h3 class="text-2xl font-bold mt-1 serif-text">シュウ</h3>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <p class="text-xs text-slate-400 line-clamp-2">感情の矢印に依存する青年。甘い香りを漂わせ、他者からの執着を糧とする。</p>
+                </div>
+            </a>
+
+            <!-- Information Card (About Pollutions) -->
+            <div class="card-glass rounded-2xl p-8 flex flex-col justify-center border-dashed border-slate-600">
+                <h3 class="text-xl font-bold text-slate-300 mb-2">典型七公害とは？</h3>
+                <p class="text-xs text-slate-500 leading-relaxed italic">
+                    環境基本法第2条第3項において規定された公害現象の総称。これらは国民の健康と生活環境を保全する上で特に監視されるべき項目である。
+                </p>
+                <div class="mt-4 pt-4 border-t border-slate-800">
+                    <p class="text-[10px] text-slate-600 font-mono italic">※本サイトにおける「擬害」は、これらの概念を用いたフィクションです。</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Disclaimer & Credit Section -->
+        <div class="mt-24 disclaimer-box p-6 rounded-lg max-w-3xl mx-auto">
+            <h4 class="text-sm font-bold text-red-400 mb-2 font-mono">⚠️ CLASSIFIED_INFO / NOTICE</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+                本アーカイブに含まれる「擬害」および付随する設定・物語は、実在する公害現象をモチーフにした独自の創作物（フィクション）です。実在する特定の人物、団体、行政機関、および現実に発生している公害問題や被害とは一切関係ありません。
+            </p>
+            <div class="mt-4 pt-4 border-t border-slate-800 flex justify-between items-center">
+                <p class="text-xs font-bold text-slate-500 tracking-widest">ARCHIVE_CREATOR: <span class="text-slate-300 font-normal serif-text text-base ml-2">圓未</span></p>
+                <p class="text-[10px] text-slate-600 font-mono">STRICTLY FOR CREATIVE ARCHIVE PURPOSES.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="border-t border-slate-800 py-12 px-6 bg-slate-950">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-slate-600 text-xs">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2024 GIGAI_ARCHIVE_PROJECT / ENMI. ALL RIGHTS RESERVED.</p>
+            </div>
+            <div class="flex gap-8">
+                <a href="#" class="hover:text-blue-400">DATABASE_GUIDE</a>
+                <a href="#" class="hover:text-blue-400">SYSTEM_LOG</a>
+                <a href="#" class="hover:text-blue-400">TERMINAL</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

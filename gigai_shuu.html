@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: SHU | 悪臭</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #ec4899; /* Sweet Pink */
+            --sub-color: #6366f1;    /* Toxic Indigo */
+            --bg-color: #0f172a;
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #020617;
+            color: #cbd5e1;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(236, 72, 153, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .floating-junk {
+            position: fixed;
+            font-size: 8rem;
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.02);
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
+            text-transform: uppercase;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+        }
+
+        .status-grid dt {
+            color: #64748b;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #f1f5f9;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -30px;
+            left: -20px;
+            font-size: 8rem;
+            color: rgba(236, 72, 153, 0.1);
+            font-family: serif;
+        }
+
+        @keyframes scent-drift {
+            0% { transform: translateY(0) scale(1); opacity: 0.2; }
+            50% { transform: translateY(-20px) scale(1.1); opacity: 0.4; }
+            100% { transform: translateY(0) scale(1); opacity: 0.2; }
+        }
+        .scent-bg {
+            background: radial-gradient(circle, var(--accent-color), transparent 70%);
+            filter: blur(60px);
+            animation: scent-drift 8s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="floating-junk" style="top: 15%; right: 5%;">CRAVE</div>
+    <div class="floating-junk" style="bottom: 25%; left: 10%;">TRASH</div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-black/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-slate-500 hover:text-pink-400 transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative">
+                    <div class="absolute -inset-10 scent-bg rounded-full"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-pink-500/30 bg-slate-900 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/17NtfQ2Atgi4Q5UAi_WDl8QVIQpnrc3ie" alt="Shu Visual" class="w-full h-full object-cover contrast-[1.1] brightness-[0.9]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-pink-500"></span>
+                                <span class="text-pink-400 font-mono text-xs tracking-widest uppercase">Unit_06 / Olfactory_Parasite</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">シュウ</h1>
+                            <p class="text-slate-500 font-serif text-2xl mt-2 tracking-[0.5em]">執</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-pink-500">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>175 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>21 yrs</dd>
+                        </div>
+                        <div>
+                            <dt>Nature</dt>
+                            <dd class="text-pink-300">悪臭</dd>
+                        </div>
+                        <div>
+                            <dt>Preference</dt>
+                            <dd>恋愛感情 / 金銭</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-slate-800 pt-4 mt-2">
+                            <dt>Behavioral Risk</dt>
+                            <dd class="text-xs leading-relaxed text-slate-400">他者の執着を糧とする精神的寄生体。対象の人生を破綻させることに躊躇がない。</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-6">
+                        <p class="text-3xl md:text-4xl serif-text text-pink-100 leading-snug tracking-tight">
+                            「え～いいじゃない、ボクとキミの仲だよ？ね？片手くらいさ…」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-slate-500 leading-snug italic">
+                            「…誰だっけ？あ、えーと、なんかごめんね？」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Archive</div>
+                    
+                    <h2 class="text-xs font-bold text-pink-500 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p>
+                            悪臭の概型生命体。脳を麻痺させるような甘く危険な芳香が常に漂っている。言動には一切の感情がこもっておらず、冷淡なまでの平坦さが特徴。
+                        </p>
+                        <p>
+                            最大の特徴は、他者から向けられるあらゆる「感情的な矢印」を生存の糧とする依存性である。愛、憎、恨み、疎ましさ――その種類や向けてくる相手が誰であるかは重要ではなく、ただ「自分に向けられている」という事実のみを快楽として享受する。特に恋愛感情が最も効率がいいと理解しており、無自覚に他者の心を惹きつけては、その生活を破綻させる。
+                        </p>
+                        <p>
+                            私生活は極めて怠惰であり、自室は足の踏み場もないゴミ屋敷と化している。同居する擬害たちに対しても平然とした顔で金を無心し、疎まれることさえも糧にしている。自身の存在定義には全く関心がなく、人ではない自分をただの「状態」として受け入れている。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-pink-500 uppercase tracking-widest mb-3">依存対象</h4>
+                            <p class="text-sm font-medium italic text-pink-200">全方位的な執着心</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-pink-500 uppercase tracking-widest mb-3">居室状況</h4>
+                            <p class="text-sm font-medium text-slate-400">完全なる廃棄物集積場</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-pink-500 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-pink-900/30 flex items-center justify-center border border-pink-500/30 text-pink-400 font-bold">執</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-pink-300 mb-1">同居する擬害たち</h5>
+                                <p class="text-xs text-slate-500">金の無心と部屋の散らかしっぷりで、日常的に彼らの平穏を蝕んでいる。彼らからの「怒り」や「呆れ」もすべて彼の快楽源となっている。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-pink-900/40 bg-black/40">
+                    <h3 class="text-sm font-bold text-slate-600 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        CRITICAL_WARNING
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">
+                        観測：物理的な被害よりも、精神的な侵食が深刻であり、一度彼に矢印を向ければ最後、その人間は精神的・社会的な死を迎えるまで吸い尽くされるだろう。芳香による中毒症状に注意。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-slate-900 text-center">
+        <p class="text-[9px] text-slate-800 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_06_SHU // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: SUI | 水質汚濁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Ser"if+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #2dd4bf; /* Teal/Cyan */
+            --accent-glow: rgba(45, 212, 191, 0.2);
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 0% 100%, rgba(15, 23, 42, 1) 0, transparent 50%),
+                radial-gradient(at 100% 100%, var(--accent-glow) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.5;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-grid dt {
+            color: #64748b;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #f1f5f9;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: var(--accent-glow);
+            font-family: serif;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-slate-950/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-slate-500 hover:text-white transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-b from-teal-500/20 to-transparent rounded-[2rem] blur opacity-25"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-slate-700/50 bg-slate-900 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/1aP-yr7Ee932CpLQE-dreSPtMfdGfaSKr" alt="Sui Visual" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-teal-500"></span>
+                                <span class="text-teal-400 font-mono text-xs tracking-widest uppercase">Unit_02 / Water_Pollution</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">スイ</h1>
+                            <p class="text-slate-400 font-serif text-2xl mt-2 tracking-[0.5em]">夊</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-teal-500/50">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>168 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>29</dd>
+                        </div>
+                        <div>
+                            <dt>Role</dt>
+                            <dd>家主</dd>
+                        </div>
+                        <div>
+                            <dt>Eyes</dt>
+                            <dd class="text-teal-400">濁った青 / たれ目</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-slate-800 pt-4 mt-2">
+                            <dt>Observation Note</dt>
+                            <dd class="text-xs leading-relaxed">酩酊のような状態。極めて予測不能。</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-slate-200 leading-snug tracking-tight">
+                            「あれえ？さっき作ってたやつどこに置きましたっけ～？<br>強酸だから探してくださいよお」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-slate-400 leading-snug opacity-80">
+                            「年長者ですよお！敬ってください！<br>まあ敬われてもお前に興味ないし、どうでもいいんですけどねえ」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Dossier</div>
+                    
+                    <h2 class="text-xs font-bold text-teal-400 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p>
+                            「擬害」たちが集う館の主であり、最年長個体と推測される。名の「夊（すい）」はゆっくりと歩く様を指し、その歩行の危うさはかつて現世を震え上がらせた大規模な水質汚濁被害の記憶を想起させる。
+                        </p>
+                        <p>
+                            常ににやにやとした笑みを浮かべ、酩酊しているかのような言動を繰り返す危険人物。薬品調合に異常な執着を見せるが、そこに高尚な目的や意義は存在しない。製作した毒物や強酸をその辺に放置し、時には他者に浴びせて反応を楽しむなど、その行動原理は刹那的かつ冷酷である。
+                        </p>
+                        <p>
+                            自らの破壊される様すら「参考にならない」と吐き捨てる虚無的な価値観の持ち主。彼にとって世界は、濁り、崩れていく過程を楽しむだけの巨大なフラスコに過ぎない。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">性格傾向</h4>
+                            <p class="text-sm font-medium italic">刹那主義・冷淡・虚無</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">加害性質</h4>
+                            <p class="text-sm font-medium">重金属および化学物質による不可逆的な汚染。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-teal-400 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold">空</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-blue-400 mb-1">ダイキ（大気汚染）</h5>
+                                <p class="text-xs text-slate-500">同居人。彼の冷ややかな視線を意に介さず、勝手に薬品を試そうとしては毒づかれている。ある意味、最も気兼ねのない遊び相手と認識している可能性あり。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-slate-800 bg-slate-950/30">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">
+                        調査官報告：対象の行動には一貫性がないように見えるが、常に「流体」のように形を変え、周囲に浸透していく。その微笑みが消える時、真の意味で「致命的な汚濁」が完了するのだろう。床に放置された液体の色は、彼の瞳と同じ、底の見えないシアン色をしていた。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-slate-900/50 text-center">
+        <p class="text-[9px] text-slate-700 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_02_SUI // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

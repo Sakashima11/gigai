@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: DAIKI | 大気汚染</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.2);
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        /* 装飾背景 */
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(15, 23, 42, 1) 0, transparent 50%),
+                radial-gradient(at 100% 0%, var(--accent-glow) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.5;
+        }
+
+        /* パネル装飾 */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .status-grid dt {
+            color: #64748b;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #f1f5f9;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        /* タイポグラフィ */
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: var(--accent-glow);
+            font-family: serif;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-slate-950/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-slate-500 hover:text-white transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual & Core Status -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <!-- Image Frame -->
+                    <div class="absolute -inset-1 bg-gradient-to-b from-blue-500/20 to-transparent rounded-[2rem] blur opacity-25"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-slate-700/50 bg-slate-900">
+                        <img src="https://lh3.googleusercontent.com/d/1pdCAXMiwH3MQBR7n0_cIf4k5vm_sPck6" alt="Daiki Visual" class="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700">
+                        
+                        <!-- Overlay Labels -->
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-blue-500"></span>
+                                <span class="text-blue-400 font-mono text-xs tracking-widest uppercase">Unit_01 / Air_Pollution</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">ダイキ</h1>
+                            <p class="text-slate-400 font-serif text-2xl mt-2 tracking-[0.5em]">代生</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fast Data Panel -->
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-blue-500/50">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>172 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>25 yrs</dd>
+                        </div>
+                        <div>
+                            <dt>Role</dt>
+                            <dd>覆面作家</dd>
+                        </div>
+                        <div>
+                            <dt>Danger</dt>
+                            <dd class="text-blue-400 font-bold">極めて高い(攻撃性)</dd>
+                        </div>
+                        <div class="col-span-2">
+                            <dt>Note</dt>
+                            <dd>不眠症・重度の愛煙家</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative & Detailed Report -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <!-- Quote Section -->
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-slate-200 leading-snug tracking-tight">
+                            「辛いときに空なんて見るな。<br>這ってでも前を見ろ」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-slate-400 leading-snug opacity-80">
+                            「生きる意味はない。死にたきゃ死ねよ。<br>迷った末にそれしかねえなら、逃げだとも言えん」
+                        </p>
+                    </div>
+                </section>
+
+                <!-- Profile Text -->
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase select-none">
+                        Dossier
+                    </div>
+                    
+                    <h2 class="text-xs font-bold text-blue-400 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p>
+                            著名な覆面作家「garando」として人間社会に深く潜伏。死生観を問うような作品を多く世に送り出しており、その筆致は読者を窒息させるような重みを持つ。
+                        </p>
+                        <p>
+                            基本的には怠惰で、他個体の異常行動に対しても自身に実害がない限りは傍観を貫く「観測者」のスタンスを取る。しかし、その内実には強烈な希死念慮を抱えており、自嘲的な言葉とは裏腹に、削り出すように執筆を続ける様は執念に近い。
+                        </p>
+                        <p>
+                            他の擬害同様、自身が概型生命体であるという明確な自覚はない。しかし、加齢や身体的変化（髪の伸長など）の欠如から、自身を含めた「家」の住人たちが人ならざる者であることを、冷徹な知性で認識している。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">精神状態</h4>
+                            <p class="text-sm font-medium italic">強烈な希死念慮 / 筆を置くことを拒絶する強迫観念。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">攻撃性</h4>
+                            <p class="text-sm font-medium">極めて高い。逃避行動を嫌い、対象の甘えを言葉で鋭く穿つ。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-blue-400 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-cyan-900/50 flex items-center justify-center border border-cyan-500/30 text-cyan-400 font-bold">水</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-cyan-400 mb-1">スイ（水質汚濁）</h5>
+                                <p class="text-xs text-slate-500">家主。生活態度の悪さに毒づきつつも、その「濁り」を認めている。基本的には不干渉だが、実務的な面では頼りにしている。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-slate-600 text-slate-400 font-bold">他</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-slate-400 mb-1">他の擬害たち</h5>
+                                <p class="text-xs text-slate-500">基本は傍観。異常行動が起きても「俺に被害がなければどうでもいい」というスタンス。ある種、彼らの存在を自身の創作の糧にしている面もある。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Investigation Note -->
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-slate-800 bg-slate-950/30">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <div class="space-y-3">
+                        <p class="text-xs text-slate-500 leading-relaxed italic">
+                            調査官報告：対象は重度のヘビースモーカーであり、その煙は大気汚染のメタファーそのものである。眠れぬ夜を煙と共に過ごし、死にたがりながらも書き続ける矛盾。
+                        </p>
+                        <p class="text-xs text-slate-500 leading-relaxed italic border-t border-slate-800 pt-3">
+                            「空を見るな」という言葉は、彼自身の「大気」という本質への拒絶、あるいは人間への、せめてもの突き放したような慈悲なのだろうか。
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-slate-900/50 text-center">
+        <p class="text-[9px] text-slate-700 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_01_DAIKI // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

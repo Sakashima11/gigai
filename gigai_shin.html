@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: SHIN | 振動</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #a855f7; /* Purple/Conflict */
+            --earth-color: #78350f; /* Earth/Stone */
+            --accent-glow: rgba(168, 85, 247, 0.2);
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #0c0a09;
+            color: #e7e5e4;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(120, 53, 15, 0.2) 0, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.5;
+        }
+
+        .glass-panel {
+            background: rgba(28, 25, 23, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-grid dt {
+            color: #a8a29e;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #fafaf9;
+            border-left: 2px solid var(--earth-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: rgba(120, 53, 15, 0.2);
+            font-family: serif;
+        }
+
+        /* 地震をイメージした振動エフェクト */
+        @keyframes rumble {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(1px, 1px); }
+            50% { transform: translate(-1px, -1px); }
+            75% { transform: translate(1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+        .rumble-hover:hover {
+            animation: rumble 0.2s infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-black/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-stone-500 hover:text-white transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-b from-stone-500/20 to-transparent rounded-[2rem] blur opacity-25"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-stone-800 bg-stone-950 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/13smRPbOvhGD0mAI8Q-fu79vKCb1LmUCs" alt="Shin Visual" class="w-full h-full object-cover grayscale-[0.2] contrast-[1.1]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-stone-500"></span>
+                                <span class="text-stone-400 font-mono text-xs tracking-widest uppercase">Unit_01 / Earthquake</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">シン</h1>
+                            <p class="text-stone-500 font-serif text-2xl mt-2 tracking-[0.5em]">心</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-stone-600">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>198 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>19</dd>
+                        </div>
+                        <div>
+                            <dt>Dominant Part</dt>
+                            <dd class="text-stone-300">異形の左腕 (骨と爪)</dd>
+                        </div>
+                        <div>
+                            <dt>Personality</dt>
+                            <dd>誠実 / 理性的</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-stone-800 pt-4 mt-2">
+                            <dt>Note</dt>
+                            <dd class="text-xs leading-relaxed text-stone-400">極めて高い常識を備えるが、自身の存在に対する強い自己嫌悪を抱く。</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-stone-200 leading-snug tracking-tight">
+                            「勘弁してくださいって。<br>マジでなにやってんすか」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-stone-400 leading-snug opacity-80 italic">
+                            「は？俺に管理人と話せって？<br>一番に交渉決裂しますよ。半裸の大男とかありえねえだろ」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Dossier</div>
+                    
+                    <h2 class="text-xs font-bold text-stone-500 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-stone-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-stone-300 leading-relaxed">
+                        <p>
+                            振動の概型生命体。圧倒的な体格と、獣の腕を模した異形の左腕を持つ。その外見から激昂しやすい怪物の印象を与えるが、実体は極めて誠実かつ理性的な青年である。
+                        </p>
+                        <p>
+                            擬害たちの中で唯一、発生当時の記憶を鮮明に保持している。しかし、それは「気づけばただそこにいた」という記憶であり、自身の姿、能力、存在のすべてに激しい憤りと自己嫌悪を感じている。合う服がないため上裸で過ごすことが多いが、そのことを「社会的にありえない」と羞恥するほどには常識的。
+                        </p>
+                        <p>
+                            他の擬害たちのブレーキ役を担うことが多いが、それゆえに「シンを怒らせたら勝ちゲーム」のターゲットにされるなど、心労が絶えない。自身のことは嫌いだが、それでも運命を共にする仲間たちを裏切ることは考えられないという、矛盾した情愛を抱えている。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-stone-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-3">特異点</h4>
+                            <p class="text-sm font-medium italic text-stone-400">地鳴りのような咆哮。激昂時は極めて論理的。</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-3">精神状態</h4>
+                            <p class="text-sm font-medium text-stone-400">慢性的自己嫌悪。仲間への強い帰属意識。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-stone-500 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-stone-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-stone-900/40 border border-stone-800/50 rumble-hover">
+                            <div class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center border border-slate-600 text-stone-400 font-bold">全</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-stone-300 mb-1">同居する擬害たち</h5>
+                                <p class="text-xs text-stone-500">「馬鹿なおっさんたち」や「気分屋」を纏める唯一の苦労人。怒らせることが一つのエンターテインメントにされている。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-stone-800 bg-black/40">
+                    <h3 class="text-sm font-bold text-stone-600 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <p class="text-xs text-stone-500 leading-relaxed italic">
+                        観測：対象は大地が抱く「痛み」の顕現である。その強大な力は本来、世界を物理的に破壊しうるものだが、彼の強い理性がそれを内側へと封じ込めている。しかし、彼が自身の存在を肯定できない限り、その鬱屈した「憤り」はいずれ取り返しのつかない大地震となって噴出する恐れがある。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-stone-900 text-center">
+        <p class="text-[9px] text-stone-800 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_01_SHIN // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

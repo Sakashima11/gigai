@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: JO | 土壌汚染</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #4ade80; /* Lime/Green */
+            --accent-glow: rgba(74, 222, 128, 0.15);
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(20, 83, 45, 0.4) 0, transparent 50%),
+                radial-gradient(at 100% 100%, var(--accent-glow) 0, transparent 50%);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.5;
+        }
+
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-grid dt {
+            color: #64748b;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #f1f5f9;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: var(--accent-glow);
+            font-family: serif;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-slate-950/80 to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-slate-500 hover:text-white transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-b from-green-500/20 to-transparent rounded-[2rem] blur opacity-25"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-slate-700/50 bg-slate-900 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/1LAuXCyhznMGk_D4SBXnRLaINp0wMc60d" alt="Jo Visual" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-green-500"></span>
+                                <span class="text-green-400 font-mono text-xs tracking-widest uppercase">Unit_03 / Soil_Pollution</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">ジョウ</h1>
+                            <p class="text-slate-400 font-serif text-2xl mt-2 tracking-[0.5em]">戎</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-green-500/50">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>189 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>24</dd>
+                        </div>
+                        <div>
+                            <dt>Eyes</dt>
+                            <dd class="text-green-400 font-bold">反転目 / 緑</dd>
+                        </div>
+                        <div>
+                            <dt>Danger</dt>
+                            <dd class="text-red-400">Extreme / 横暴</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-slate-800 pt-4 mt-2">
+                            <dt>Behavioral Note</dt>
+                            <dd class="text-xs leading-relaxed">友好的な装いは偽装である。他者の領域を蹂躙する習性あり。</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-slate-200 leading-snug tracking-tight">
+                            「いつから居やがんだよ。<br>とっとと出てけや鬱陶しい」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-slate-400 leading-snug opacity-80">
+                            「オレぁダイキみてぇにゃ生きらんねぇよ。<br>苦しんで生きるなんざごめんだ。」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Dossier</div>
+                    
+                    <h2 class="text-xs font-bold text-green-400 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-slate-300 leading-relaxed">
+                        <p>
+                            「土壌汚染」の概型生命体。名の「戎（じょう）」は攻撃的な性質と大地の恵みという相反する意味を内包する。189cmの巨躯にオーバーオールを纏い、糸目から覗く黒い反転目が特徴的。
+                        </p>
+                        <p>
+                            常に笑顔を絶やさず友好的な態度で接してくるが、その本性は気分屋で極めて横暴。他人の領域や物品を踏み荒らし、最終的には自らの所有物として塗り替えてしまう「蹂躙」の性質を持つ。同居する他の擬害たちからも一際強い警戒を向けられている個体である。
+                        </p>
+                        <p>
+                            感情の機微に妙に鋭く、感情を押し殺して生きる者を「愚かしい」と蔑む。人の嫌がる顔を好むサディスティックな一面がある一方で、自分に仕返しをする者や、ただ笑って耐える者に対しては激しい嫌悪感を示す。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-slate-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">趣味 / 習慣</h4>
+                            <p class="text-sm font-medium italic">農業（動機不明）/ 野菜への毒吐き</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3">生存意識</h4>
+                            <p class="text-sm font-medium">非人間であることを自覚。苦痛を伴う生を拒絶する。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-green-400 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-slate-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-blue-900/50 flex items-center justify-center border border-blue-500/30 text-blue-400 font-bold">空</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-blue-400 mb-1">ダイキ（大気汚染）</h5>
+                                <p class="text-xs text-slate-500">その生き方を「苦しんでいる」と評し、明確に否定。自分とは相容れない存在として、どこか突き放したような態度を取る。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50">
+                            <div class="w-12 h-12 rounded-full bg-teal-900/50 flex items-center justify-center border border-teal-500/30 text-teal-400 font-bold">水</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-teal-400 mb-1">スイ（水質汚濁）</h5>
+                                <p class="text-xs text-slate-500">家主。横暴なジョウにとっても、スイの予測不能な「毒」や「放置癖」はそれなりに警戒対象、あるいは観察対象となっている。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-slate-800 bg-slate-950/30">
+                    <h3 class="text-sm font-bold text-slate-500 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed italic">
+                        観測：対象は土壌そのものの化身であり、侵食と支配を本能とする。彼の「農業」という矛盾した行為は、死にゆく大地への嘲笑なのか、あるいは「奪うための育成」なのか。彼が緑の瞳を見開く時、そこには生命の輝きではなく、全てを腐植へと変える暗黒の意志が宿っている。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-slate-900/50 text-center">
+        <p class="text-[9px] text-slate-700 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_03_JO // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>

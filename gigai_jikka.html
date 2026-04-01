@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIGAI_DOSSIER: JIKKA | 地盤沈下</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap');
+
+        :root {
+            --accent-color: #facc15; /* Yellow/Sun */
+            --void-color: #000000;   /* Void/Black */
+            --accent-glow: rgba(250, 204, 21, 0.3);
+        }
+
+        body {
+            font-family: 'Zen Kaku Gothic New', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+            overflow-x: hidden;
+        }
+
+        .serif-text { font-family: 'Noto Serif JP', serif; }
+
+        .bg-pattern {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                radial-gradient(at 50% 50%, rgba(250, 204, 21, 0.1) 0, transparent 70%),
+                conic-gradient(from 180deg at 50% 50%, #111 0deg, #000 360deg);
+            z-index: -1;
+        }
+
+        .scanlines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+            background-size: 100% 4px;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.4;
+        }
+
+        .glass-panel {
+            background: rgba(23, 23, 23, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(250, 204, 21, 0.1);
+        }
+
+        .status-grid dt {
+            color: #71717a;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.2rem;
+        }
+
+        .status-grid dd {
+            font-weight: 700;
+            color: #ffffff;
+            border-left: 2px solid var(--accent-color);
+            padding-left: 0.75rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.95rem;
+        }
+
+        .quote-decoration::before {
+            content: "“";
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 5rem;
+            color: var(--accent-glow);
+            font-family: serif;
+        }
+
+        /* 飲み込むようなアニメーション */
+        @keyframes swallow {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.1); opacity: 1; filter: brightness(1.2); }
+        }
+        .swallow-effect {
+            animation: swallow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="bg-pattern"></div>
+    <div class="scanlines"></div>
+
+    <nav class="fixed top-0 left-0 w-full p-6 z-40 bg-gradient-to-b from-black to-transparent">
+        <a href="gigai_index.html" class="inline-flex items-center text-zinc-500 hover:text-yellow-400 transition-colors group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            <span class="text-[10px] tracking-[0.3em] font-mono">RETURN_TO_ARCHIVE</span>
+        </a>
+    </nav>
+
+    <main class="relative pt-24 pb-20 px-6 max-w-7xl mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-start">
+            
+            <!-- Left Column: Visual -->
+            <div class="lg:w-[45%] w-full sticky lg:top-24">
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-b from-yellow-500/30 to-transparent rounded-[2rem] blur opacity-40"></div>
+                    <div class="relative aspect-[3/4] rounded-[2rem] overflow-hidden border border-zinc-800 bg-zinc-950 shadow-2xl">
+                        <img src="https://lh3.googleusercontent.com/d/1kUklrKMZZ9wQZ6qOOtRg_5I5ACJD7m2M" alt="Jikka Visual" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-10 left-10">
+                            <div class="flex items-center gap-3 mb-2">
+                                <span class="h-[1px] w-8 bg-yellow-400 swallow-effect"></span>
+                                <span class="text-yellow-400 font-mono text-xs tracking-widest uppercase">Unit_05 / Land_Subsidence</span>
+                            </div>
+                            <h1 class="text-7xl font-bold serif-text tracking-tighter text-white">ジッカ</h1>
+                            <p class="text-zinc-400 font-serif text-2xl mt-2 tracking-[0.5em]">日禍</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 glass-panel rounded-3xl p-8 border-l-4 border-l-yellow-400">
+                    <div class="grid grid-cols-2 gap-4 status-grid">
+                        <div>
+                            <dt>Height</dt>
+                            <dd>126 cm</dd>
+                        </div>
+                        <div>
+                            <dt>Apparent Age</dt>
+                            <dd>6 yrs</dd>
+                        </div>
+                        <div>
+                            <dt>Nature</dt>
+                            <dd class="text-yellow-200">大喰らい / 無邪気</dd>
+                        </div>
+                        <div>
+                            <dt>Capacity</dt>
+                            <dd>無限 (湖をも嚥下)</dd>
+                        </div>
+                        <div class="col-span-2 border-t border-zinc-800 pt-4 mt-2">
+                            <dt>Behavioral Note</dt>
+                            <dd class="text-xs leading-relaxed text-zinc-400">自他境界が極めて曖昧。悪意なき捕食行動に注意が必要。</dd>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Narrative -->
+            <div class="lg:w-[55%] w-full space-y-12">
+                
+                <section class="relative py-10 px-4">
+                    <div class="quote-decoration"></div>
+                    <div class="space-y-4">
+                        <p class="text-3xl md:text-4xl serif-text text-zinc-100 leading-snug tracking-tight">
+                            「ぬお～～～！！！！<br>これおいしい！！なにこれ？？？？」
+                        </p>
+                        <p class="text-xl md:text-2xl serif-text text-yellow-400/80 leading-snug tracking-tighter">
+                            「でっかくてかっこよくて<br>かしこーいおとこになってやるんだあ！」
+                        </p>
+                    </div>
+                </section>
+
+                <section class="glass-panel rounded-[2rem] p-10 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-5 font-mono text-6xl pointer-events-none uppercase">Dossier</div>
+                    
+                    <h2 class="text-xs font-bold text-yellow-400 mb-6 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Personnel Log</span>
+                        <span class="flex-1 h-[1px] bg-zinc-800"></span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-zinc-300 leading-relaxed">
+                        <p>
+                            地盤沈下の概型生命体。外見は6歳程度の幼い少年であるが、その本質は万物を等しく胃の腑へ収める「消失」の穴に近い。
+                        </p>
+                        <p>
+                            出現当初から擬害たちと共に過ごしているため、自身を異質な存在と疑うこともなければ、人間であると自認することもない。ただそこに在り、空腹を満たし、無邪気に笑うだけの存在である。自他の境界線が極めて薄く、世界を「自分の一部」あるいは「食べ物」として認識している。
+                        </p>
+                        <p>
+                            同居人のスイ（水質汚濁）を「かっこよくて賢い」存在として盲信しており、彼のようになりたいと願っている。しかし、本人の知性は外見年齢相応であり、深淵な思索に耽る様子は微塵も感じられない。食べられないものが存在せず、湖一つをまるごと腹に収めることさえ可能。
+                        </p>
+                    </div>
+
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 pt-10 border-t border-zinc-800/50">
+                        <div>
+                            <h4 class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3">嗜好</h4>
+                            <p class="text-sm font-medium italic text-yellow-100">すべての物質</p>
+                        </div>
+                        <div>
+                            <h4 class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3">危険度</h4>
+                            <p class="text-sm font-medium text-red-400">測定不能</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relation Map -->
+                <section class="space-y-6">
+                    <h2 class="text-xs font-bold text-yellow-400 tracking-[0.4em] uppercase flex items-center">
+                        <span class="mr-4">Relationships</span>
+                        <span class="flex-1 h-[1px] bg-zinc-800"></span>
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50">
+                            <div class="w-12 h-12 rounded-full bg-teal-900/50 flex items-center justify-center border border-teal-500/30 text-teal-400 font-bold">水</div>
+                            <div>
+                                <h5 class="text-sm font-bold text-teal-400 mb-1">スイ（水質汚濁）</h5>
+                                <p class="text-xs text-zinc-500">憧れの対象。いつか彼のような「かっこいい大人」になることを夢見ているが、現状はただの懐っこい子供である。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-6 p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800/50">
+                            <div class="w-12 h-12 rounded-full bg-stone-800 flex items-center justify-center border border-stone-600 text-stone-400 font-bold">振</div>
+                            <div>振
+                                <h5 class="text-sm font-bold text-stone-300 mb-1">シン（振動）</h5>
+                                <p class="text-xs text-zinc-500">ストッパー役。ジッカが余計なものを食べないよう、常に目を光らせている苦労人。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="p-8 rounded-[2rem] border-2 border-dashed border-zinc-800 bg-black/60">
+                    <h3 class="text-sm font-bold text-zinc-600 mb-4 flex items-center gap-2 font-mono">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                        OBSERVATION_ADDENDUM
+                    </h3>
+                    <p class="text-xs text-zinc-500 leading-relaxed italic">
+                        観測：対象の胃袋は異次元へと繋がっている可能性が高い。地盤沈下という事象が具現化したこの個体は、悪意がない分制御は不可能に近い。
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="mt-20 py-10 border-t border-zinc-900 text-center">
+        <p class="text-[9px] text-zinc-800 font-mono tracking-[0.5em]">
+            CONFIDENTIAL // ARCHIVE_05_JIKKA // PRODUCED_BY_ENMI
+        </p>
+    </footer>
+</body>
+</html>
